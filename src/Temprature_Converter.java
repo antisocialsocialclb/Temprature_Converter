@@ -5,7 +5,7 @@ public class Temprature_Converter{
 
     // Celcius to Fahrenheit
     static double Celcius_to_Fahrenheit(double Celcius){
-        double Fahrenheit = (Celcius * 9/5) + 32;
+        double Fahrenheit = (Celcius * 9 / 5) + 32;
         return Fahrenheit;
     }
     // Celcius to Kelvin
@@ -38,9 +38,16 @@ public class Temprature_Converter{
 
     // Read the value of temperature given by the user
     static double Input_Temperature(String Temperature){
-        System.out.println("Enter the "+Temperature+" value:");
-        double val = sc.nextDouble();
-        return val;
+        while (true) {
+            System.out.println("Enter the " + Temperature + " value:");
+            try {
+                double val = sc.nextDouble();
+                return val;
+            } catch (Exception e) {
+                System.out.println("Incorrect value");
+                sc.nextLine();
+            }
+        }
     }
 
     // Print converted value of temperature
